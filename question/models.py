@@ -9,7 +9,7 @@ class ques(models.Model):
     ques_id = models.AutoField(primary_key=True)
     ques_title = models.CharField(max_length=50)
     ques_desc = models.CharField(max_length=200)
-    ques_type = models.CharField(choices=TYPE_OF_QUESTIONS_CHOICE,default='MCQ')
+    ques_type = models.CharField(choices=TYPE_OF_QUESTIONS_CHOICE,default='MCQ',max_length=20)
     ques_marks = models.IntegerField(default=0)
     ques_reason = models.CharField(max_length=200)
 
@@ -27,6 +27,6 @@ class tf(models.Model):
     ques_object = models.ForeignKey(ques,on_delete=models.CASCADE)
     tf_ans = models.BooleanField(default=False)
 
-class integerType(model.Models):
+class integerType(models.Model):
     ques_object = models.ForeignKey(ques,on_delete=models.CASCADE)
     integerType_ans = models.IntegerField(default= 0)
