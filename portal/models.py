@@ -7,9 +7,9 @@ from question.models import *
 class userQuiz(models.Model):
     quiz_user = models.ManyToManyField(User)
     quiz_object = models.ManyToManyField(quizC)
-    quiz_marks_obtained = models.IntegerField()
+    quiz_marks_obtained = models.IntegerField(default=0)
 
 class userQuestionMarks(models.Model):
     quiz_user_object = models.ManyToManyField(userQuiz)
     ques_object = models.ManyToManyField(ques)
-    ques_marks_obtained = models.IntegerField()
+    ques_marks_obtained = models.IntegerField(default=0)
